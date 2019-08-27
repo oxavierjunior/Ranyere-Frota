@@ -23,10 +23,7 @@ const configuration = {
   // Make sure these textures are set to uncompressed or this *will not work*
   items: [
     {image_texture: Textures.get('blue')},
-    {image_texture: Textures.get('red')},
-    {image_texture: Textures.get('white')},
-    {image_texture: Textures.get('yellow')},
-    {image_texture: Textures.get('green')}
+    
   ],
 
   // OPTIONAL:
@@ -35,10 +32,7 @@ const configuration = {
   // that matches the order of the textures above
   mats: [
     {material: Materials.get("blue")},
-    {material: Materials.get("red")},
-    {material: Materials.get("white")},
-    {material: Materials.get("yellow")},
-    {material: Materials.get("green")}
+   
   ]
 };
 
