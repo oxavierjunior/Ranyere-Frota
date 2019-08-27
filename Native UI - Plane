@@ -1,0 +1,63 @@
+//SIGAM-ME NO INSTAGRAM: @ALIENCANDIES
+//FUNCIONA APENAS NO INSTAGRAM
+
+// MODULOS
+const Materials = require('Materials');
+const Scene = require('Scene');
+const NativeUI = require('NativeUI');
+const Textures = require('Textures');
+
+// Encontrando objetos
+const plane = Scene.root.find('plane0');
+
+// Selecione em qual o número seu efeito inicia, o valor 0 significa o 1°
+const index = 0;
+
+// configuração do objeto
+const configuration = {
+
+  // Index do objeto selecionado no picker
+  selectedIndex: index,
+
+  // Texturas dos botões
+  // Make sure these textures are set to uncompressed or this *will not work*
+  items: [
+    {image_texture: Textures.get('blue')},
+    {image_texture: Textures.get('red')},
+    {image_texture: Textures.get('white')},
+    {image_texture: Textures.get('yellow')},
+    {image_texture: Textures.get('green')}
+  ],
+
+  // OPTIONAL:
+  // In this example we are switching materials
+  // so I have included an object of materials
+  // that matches the order of the textures above
+  mats: [
+    {material: Materials.get("blue")},
+    {material: Materials.get("red")},
+    {material: Materials.get("white")},
+    {material: Materials.get("yellow")},
+    {material: Materials.get("green")}
+  ]
+};
+
+// criando o picker
+const picker = NativeUI.picker;
+
+// Carregamento das configurações
+picker.configure(configuration);
+
+// Deixe o valor em true para o seletor ficar visível
+picker.visible = true;
+
+// Função de seleção do picker para o material
+
+picker.selectedIndex.monitor().subscribe(function(val) {
+
+    // Material do plano
+    plane.material = configuration.mats[val.newValue].material;
+;
+});
+
+//Me sigam no Instagram: @aliencandies
